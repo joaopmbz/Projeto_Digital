@@ -34,9 +34,29 @@ void menu(){
 
 // Roda apenas uma vez, configura os leds,botoes,buzzer e liga o display
 void setup(){
+  pinMode(up,INPUT_PULLUP);
+  pinMode(down,INPUT_PULLUP);
   lcd.init();
   lcd.backlight();
   menu();
+}
+
+//le os botoes
+void loop(){
+  if(digitalRead(up)==LOW){
+    musica--;
+    if(musica<0) musica=4;
+    menu();
+    while(digitalRead(up)==LOW){}
+    delay(50);
+  }
+  if(digitalRead(down)==LOW){
+    musica++;
+    if(musica>4) musica=0;
+    menu();
+    while(digitalRead(down)==LOW){}
+    delay(50);
+  }
 }
 
 //le os botoes
