@@ -58,7 +58,3 @@ void loop(){
     delay(50);
   }
 }
-
-//le os botoes
-void loop(){
-}
