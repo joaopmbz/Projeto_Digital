@@ -16,7 +16,6 @@ int nota;// Guarda a frequencia da nota que esta sendo tocada
 int parou=0;//aviso de stop 0 (não para) 1 (pausa)
 
 
-
 String nomes[5]={"Tetris","Rei Montanha","Pour Elise","Marcha Turca","Can-can"};
 
 //frequencia das notas (Hz) de cada musica
@@ -36,6 +35,10 @@ int tempos[5][40]={
 {150,150,150,150,300,150,150,150,150,300,150,150,150,150,150,150,150,150,150,150,150,150,600},
 {400,200,200,200,200,400,400,200,200,200,200,400,400,200,200,200,200,200,200,200,200,200,200,200,200,400}
 };
+
+//boneco
+byte b1[8]={B01110,B01110,B10101,B01110,B00100,B01010,B10001,B00000};
+byte b2[8]={B01110,B01110,B00100,B11111,B00100,B01010,B01010,B00000};
 
 // menu LCD mostra nome das musicas e a ">" de seleção
 void menu(){
@@ -63,6 +66,8 @@ void setup(){
   pinMode(buzzer,OUTPUT);
   lcd.init();
   lcd.backlight();
+  lcd.createChar(0,b1);
+  lcd.createChar(1,b2);
   menu();
 }
 
@@ -80,6 +85,10 @@ void tocar(){
     if(tempos[musica][i]==0) break;
     nota=notas[musica][i];
 	
+    //boneco
+    lcd.setCursor(15,0);
+    if(i%2==0) lcd.write(byte(0));
+    else lcd.write(byte(1));
 	//toca a nota
     tone(buzzer,nota);
 
