@@ -8,7 +8,8 @@ Projeto da disciplina CCP020 - Digital Experience Ultimate (FEI)
 - João Pedro Miguel Bezerra - 22.126.026-8
 
 ---
-
+## LINK GITHUB:
+https://github.com/joaopmbz/Projeto_Digital
 ## Introdução
 
 A proposta do projeto era montar um reprodutor de músicas com Arduino, parecido com um MP3 player bem simples. O usuário escolhe a música num menu que aparece no display LCD, usando os botões de cima e de baixo, e depois pode dar play, pausar e parar. Dois LEDs mostram o estado: o verde acende quando a música está tocando e o vermelho quando está pausada. O som sai por um buzzer.
